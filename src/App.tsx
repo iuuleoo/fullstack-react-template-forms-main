@@ -6,13 +6,17 @@ import{ useState } from "react"
 export default function App() {
   const [name, setName] = useState("")
 
+  function onSubmit(e: React.FormEvent<HTMLElement>) {
+     e.preventDefault()
+  }
+
 
 
   return (
     <div>
       <h1>Evento {name}</h1>
 
-      <form>
+      <form onSubmit={onSubmit}>
         <input type="text" placeholder="Nome do evento" onChange={e => setName(e.target.value)} />
         <span className="error">Nome é obrigatório</span>
 
